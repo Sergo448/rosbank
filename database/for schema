@@ -14,7 +14,7 @@ currency varchar(40) not null,
 direct_quote varchar(40) not null,
 reverse_quote varchar(40) not null,
 cross_course varchar(40),
-quote_date timestamptz not null
+quote_date timestamptz not nullpip
 );
 
 create table trading.history_prices (

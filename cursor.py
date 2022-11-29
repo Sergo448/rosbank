@@ -5,7 +5,11 @@
 # http://www.postgresqltutorial.com/postgresql-python/connect/
 
 import psycopg2
-
+"""
+sudo yum install postgresql postgresql-devel python-devel
+And now include the path to your postgresql binary dir with you pip install:
+sudo PATH=$PATH:/usr/pgsql-9.3/bin/ pip install psycopg2
+"""
 # Establish a connection to the database by creating a cursor object
 # The PostgreSQL server must be accessed through the PostgreSQL APP or Terminal Shell
 
