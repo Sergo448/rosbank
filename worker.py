@@ -1,32 +1,58 @@
-# This Python script connects to a PostgreSQL database and utilizes Pandas to obtain data and create a data frame
-# A initialization and configuration file is used to protect the author's login credentials
-
 import psycopg2
-# Import the 'config' funtion from the config.py file
-from postgres_config import config
+from contextlib import closing
 
-# Establish a connection to the database by creating a cursor object
+with closing(psycopg2.connect(host="localhost",
+                              port=5432,
+                              database="postgres",
+                              user="postgres",
+                              password="postgres")) as conn:
+    conn.set_session(autocommit=True)
+    with conn.cursor() as cursor:
+        cursor.execute(
+            """
+        create schema trading;
 
-# Obtain the configuration parameters
-params = config()
-# Connect to the PostgreSQL database
-conn = psycopg2.connect(**params)
-# Create a new cursor
-cur = conn.cursor()
-
-
-# A function that takes in a PostgreSQL query and outputs a pandas database
-def create_pandas_table(sql_query, database=conn):
-    table = pd.read_sql_query(sql_query, database)
-    return table
-
-
-# Utilize the create_pandas_table function to create a Pandas data frame
-# Store the data as a variable
-vendor_info = create_pandas_table("SELECT vendor_id, vendor_name FROM vendors ORDER BY vendor_name")
-vendor_info
+        create table trading.securities (
+        client_id INTEGER not null,
+        client_date timestamptz not null,
+        client_ISIN_paper varchar(40) not null,
+        client_n_papers integer,
+        client_currency varchar(40),
+        client_rialto varchar(40),
+        client_closing_price money );
+        
+        create table trading.investment_currencyhistory (
+        currency varchar(40) not null,
+        direct_quote varchar(40) not null,
+        reverse_quote varchar(40) not null,
+        cross_course varchar(40),
+        quote_date timestamptz not nullpip
+        );
+        
+        create table trading.history_prices (
+        currency varchar(40) not null,
+        direct_quote varchar(40) not null,
+        reverse_quote varchar(40) not null,
+        cross_course varchar(40),
+        date_ date not null,
+        time_ time
+        );
+        
+        create table trading.сlients(
+        investor_ID integer not null,
+        full_name varchar(40) not null,
+        investor_age smallint not null,
+        investor_country varchar(40) not null,
+        number_in_briefcase integer,
+        positive_capital money not null,
+        qual_or_nonqual boolean,
+        personal_manager_ID varchar(40) not null
+        );
+        """)
+        for row in cursor:
+            print(row)
 
 # Close the cursor and connection to so the server can allocate
 # bandwidth to other requests
-cur.close()
+
 conn.close()

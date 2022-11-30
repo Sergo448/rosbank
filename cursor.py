@@ -16,13 +16,14 @@ sudo PATH=$PATH:/usr/pgsql-9.3/bin/ pip install psycopg2
 # conn = psycopg2.connect("dbname=suppliers port=5432 user=postgres password=postgres")
 
 # Or:
-conn = psycopg2.connect(host="localhost", port = 5432, database="postgres", user="postgres", password="postgres")
+conn = psycopg2.connect(host="localhost", port=5432, database="postgres", user="postgres", password="postgres")
 
 # Create a cursor object
 cur = conn.cursor()
 
 # A sample query of all data from the "vendors" table in the "suppliers" database
-cur.execute("""SELECT * FROM vendors""")
+cur.execute("""SELECT * FROM pg_database""")
+
 query_results = cur.fetchall()
 print(query_results)
 
