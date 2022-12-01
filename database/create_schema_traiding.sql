@@ -10,14 +10,16 @@ client_rialto varchar(40),
 client_closing_price money );
 
 create table traiding.investment_currencyhistory (
+currency_id int4 not null primary key,
 currency varchar(40) not null,
 direct_quote varchar(40) not null,
 reverse_quote varchar(40) not null,
 cross_course varchar(40),
-quote_date timestamptz not nullpip
+quote_date timestamptz not null
 );
 
-create table tradiing.history_prices (
+create table traiding.history_prices (
+currency_id int4 not null primary key,
 currency varchar(40) not null,
 direct_quote varchar(40) not null,
 reverse_quote varchar(40) not null,
@@ -37,7 +39,9 @@ qual_or_nonqual boolean,
 personal_manager_ID varchar(40) not null
 );
 
-ALTER TABLE traiding.history_prices ADD PRIMARY KEY (currency);
-ALTER TABLE traiding.investment_currencyhistory ADD PRIMARY KEY (currency);
+
 ALTER TABLE traiding.securities ADD PRIMARY KEY (client_id);
-ALTER TABLE traiding.clients ADD PRIMARY KEY (investor_id)
+ALTER TABLE traiding.clients ADD PRIMARY KEY (investor_id);
+
+ALTER TABLE traiding.history_prices
+ALTER COLUMN date_ SET DATA TYPE text ;
