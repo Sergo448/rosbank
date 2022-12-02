@@ -1,13 +1,15 @@
 create schema traiding;
 
+
 create table traiding.securities (
+operartion_id integer not null primary key,
 client_id INTEGER not null,
 client_date timestamptz not null,
 client_ISIN_paper varchar(40) not null,
 client_n_papers integer,
 client_currency varchar(40),
 client_rialto varchar(40),
-client_closing_price money );
+client_closing_price varchar(40);
 
 create table traiding.investment_currencyhistory (
 currency_id int4 not null primary key,
@@ -40,7 +42,7 @@ personal_manager_ID varchar(40) not null
 );
 
 
-ALTER TABLE traiding.securities ADD PRIMARY KEY (client_id);
+
 ALTER TABLE traiding.clients ADD PRIMARY KEY (investor_id);
 
 ALTER TABLE traiding.history_prices

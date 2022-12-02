@@ -68,7 +68,7 @@ def postgresql_to_dataframe(conn, select_query, column_names):
 
 # Connect to the database
 conn = connect(param_dic)
-column_names = ['client_id', 'client_date', 'client_isin_paper', 'client_n_papers',
+column_names = ['operation_id', 'client_id', 'client_date', 'client_isin_paper', 'client_n_papers',
                 'client_currency', 'client_rialto', 'client_closing_price']
 # Execute the "SELECT *" query
 securities = postgresql_to_dataframe(conn, "select * from traiding.securities", column_names)
