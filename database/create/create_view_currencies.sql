@@ -2,5 +2,5 @@
  * Пришлось создать вид спомощью другой таблицы,
  * с помощью которого будет создаваться другая.*/
 
-create or replace view currencies as 
+create or replace view traiding.currencies as 
 select distinct currency from traiding.investment_currencyhistory ic ;
