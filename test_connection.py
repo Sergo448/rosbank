@@ -2,6 +2,7 @@ import psycopg2
 from contextlib import closing
 
 #  options="-c search_path=dbo,traiding"
+
 with closing(psycopg2.connect(host="localhost",
                               port=5432,
                               database="rosbank",
