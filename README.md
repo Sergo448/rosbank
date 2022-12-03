@@ -26,3 +26,9 @@ rendom-generator.py - script for generate random samples.
 6) directory - from_sql_to_csv_scripts. Тут сожержатся скрипты питона, которые преобразуют наши таблицы из схемы в файлы соответствующего формата.
 
 
+> Результат выполнения 3.а можно найти в notebooks/mean_with_fifo.ipynb
+> 
+> Результат выполнения 3.б
+> 
+> Результат выполнения 4 в notebooks/dashboard.ipynb
+
