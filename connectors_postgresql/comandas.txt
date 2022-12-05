@@ -1,0 +1,47 @@
+1) List the available connctors
+
+-> confluent connect plugin list
+
+2) Show the required connector configuration properties
+
+-> confluent connect plugin describe PostgresSource
+
+Example out:
+
+Following are the required configs:
+connector.class
+name
+kafka.auth.mode
+kafka.api.key
+kafka.api.secret
+topic.prefix
+connection.host
+connection.port
+connection.user
+connection.password
+ssl.mode
+db.name
+table.whitelist
+timestamp.column.name
+output.data.format
+tasks.max
+
+3) Create connector configuration file
+
+/connectors_postgres/source_connector.json
+
+4) To listy available service resource...
+
+-> confluent iam service-account list
+
+5)  Load the properties file and create the connector.
+
+-> confluent connect create --config source_connector.json
+
+Example out:
+
+Created connector confluent-postgresql-source lcc-ix4dl
+
+6) Check the connector status.
+
+-> confluent connect list
