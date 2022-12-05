@@ -28,7 +28,7 @@ rendom-generator.py - script for generate random samples.
 
 > Результат выполнения 3.а можно найти в notebooks/mean_with_fifo.ipynb
 > 
-> Результат выполнения 3.б
+> Результат выполнения 3.б можно найти в notebooks/mean_with_mean_weights.ipynb
 > 
 > Результат выполнения 4 в notebooks/dashboard.ipynb
 
