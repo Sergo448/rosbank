@@ -1,4 +1,4 @@
-This is the roject for Rosbank.
+Rosbank test project.
 
 Full instruction about database you can find on the path rosbank/database/instruction.txt
 
@@ -22,7 +22,7 @@ rendom-generator.py - script for generate random samples.
    Содержит в себе jupyter notebooks для визуализации данных.
    
    А также моя личная любимая практика, а именно отлаживать некоторые функции и короткие скрипты в ноутбуке.
-5) directory - csv_s. В ней хранятся наши таблицы в понятном формате.
+5) directory - csv_s. В ней хранятся наши таблицы в .csv формате.
 6) directory - from_sql_to_csv_scripts. Тут сожержатся скрипты питона, которые преобразуют наши таблицы из схемы в файлы соответствующего формата.
 
 
